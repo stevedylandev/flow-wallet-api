@@ -1,4 +1,4 @@
-FROM golang:1.17.6-alpine3.15 AS dependencies
+FROM golang:1.20rc1-alpine3.17 AS dependencies
 
 RUN apk update && apk add --no-cache \
   ca-certificates \
@@ -10,7 +10,7 @@ RUN apk update && apk add --no-cache \
 ENV GO111MODULE=on \
   CGO_ENABLED=1 \
   GOOS=linux \
-  GOARCH=amd64
+  GOARCH=arm64
 
 WORKDIR /build
 
